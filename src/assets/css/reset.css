@@ -1,1 +1,39 @@
 @import "~normalize.css";
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap");
+/* reset */
+body {
+  font-family: "Josefin Sans", sans-serif;
+  overflow-x: hidden;
+}
+input,
+a {
+  outline: none;
+}
+
+ul {
+  list-style: none;
+  padding-inline-start: 0;
+  margin-bottom: 0;
+}
+
+/* global style */
+.wrap-v1 {
+  width: 1440px;
+  margin: 0 auto;
+}
+
+.wrap-v2 {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.text-nowrap {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.navbar,
+.navbar-brand {
+  padding: 0;
+}

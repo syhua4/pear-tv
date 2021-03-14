@@ -1,12 +1,22 @@
 import React, { memo } from "react";
-import logo from "@/assets/image/logo.png";
+import { Provider } from "react-redux";
+import { BrowserRouter } from "react-router-dom";
+import { renderRoutes } from "react-router-config";
+
+import routes from "@/router";
+import store from "@/store";
+
+import AppHeader from "@/components/app-header";
+import AppFooter from "@/components/app-footer";
+
 export default memo(function App() {
   return (
-    <div>
-      <div>header</div>
-      <img src={logo} alt="" />
-      <div>content</div>
-      <div>footer</div>
-    </div>
+    <Provider store={store}>
+      <BrowserRouter>
+        <AppHeader />
+        {renderRoutes(routes)}
+        <AppFooter />
+      </BrowserRouter>
+    </Provider>
   );
 });

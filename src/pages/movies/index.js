@@ -1,7 +1,10 @@
-import React, { memo, useEffect } from "react";
+import React, { memo, useCallback, useEffect } from "react";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 
-import { getMoviesAction } from "./store/actionCreators";
+import {
+  getMovieByIdAction,
+  getMoviesAction,
+} from "./store/actionCreators";
 
 import { MoviesWrapper } from "./style";
 import MovieFilter from "./child-cpns/movie-filter";
@@ -20,6 +23,12 @@ export default memo(function Movies() {
     dispatch(getMoviesAction());
   }, [dispatch]);
 
+  const applyFilter = useCallback(
+    (sortBy, genre, year) => {
+      dispatch(getMoviesAction(sortBy, genre, year));
+    },
+    [dispatch]
+  );
   return (
     <MoviesWrapper>
       <img
@@ -27,7 +36,7 @@ export default memo(function Movies() {
         alt="Alice in Wonderland movie banner"
         className="movie-banner d-block w-100"
       />
-      <MovieFilter />
+      <MovieFilter applyFilter={applyFilter} />
       <MovieGrid movies={movies} />
     </MoviesWrapper>
   );

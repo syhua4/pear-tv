@@ -12,9 +12,9 @@ const changeMovieByIdAction = (res) => ({
   movieInfo: res,
 });
 
-export const getMoviesAction = () => {
+export const getMoviesAction = (sortBy, genre, year) => {
   return (dispatch) => {
-    getMovies().then((res) => {
+    getMovies(sortBy, genre, year).then((res) => {
       dispatch(changeMoviesAction(res));
     });
   };

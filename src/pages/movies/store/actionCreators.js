@@ -7,15 +7,21 @@ const changeMoviesAction = (res) => ({
   movies: res.results,
 });
 
+const changeTotalPage = (res) => ({
+  type: actionTypes.CHANGE_TOTAL_PAGE,
+  totalPage: res.total_pages,
+});
+
 const changeMovieByIdAction = (res) => ({
   type: actionTypes.CHANGE_MOVIE_INFO,
   movieInfo: res,
 });
 
-export const getMoviesAction = (sortBy, genre, year) => {
+export const getMoviesAction = (sortBy, genre, year, page) => {
   return (dispatch) => {
-    getMovies(sortBy, genre, year).then((res) => {
+    getMovies(sortBy, genre, year, page).then((res) => {
       dispatch(changeMoviesAction(res));
+      dispatch(changeTotalPage(res));
     });
   };
 };

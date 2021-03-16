@@ -4,8 +4,8 @@ export function getMovies(
   sort_by = "popularity.desc",
   genre = "all",
   year = "all",
-  language = "en-US",
-  page = 1
+  page = 1,
+  language = "en-US"
 ) {
   return request({
     url: "/discover/movie",

@@ -4,10 +4,9 @@ import { BannerWrapper } from "./style";
 export default memo(function MovieInfoBanner(props) {
   const { info } = props;
   const formatTrailer = () => {
-    if (!info.videos.results) return;
-    const youtubeVideo = info.videos.results.filter(
-      (v) => v.site === "YouTube"
-    );
+    if (info && !info.videos.results) return;
+    const youtubeVideo =
+      info && info.videos.results.filter((v) => v.site === "YouTube");
     if (youtubeVideo.length) {
       return `https://www.youtube.com/watch?v=${youtubeVideo[0].key}`;
     } else {
@@ -32,11 +31,13 @@ export default memo(function MovieInfoBanner(props) {
             {info && info.genres.map((genre) => genre.name).join(", ")}
           </div>
           <div>
-            {info &&
-              info.production_countries[0].iso_3166_1 +
-                "/" +
-                info.runtime +
-                "min"}
+            {((info &&
+              info.production_countries[0] &&
+              info.production_countries[0].iso_3166_1) ||
+              "") +
+              "/" +
+              info.runtime +
+              "min"}
           </div>
           <div className="date">{info && info.release_date}</div>
 

@@ -1,16 +1,29 @@
 import * as actionTypes from "./constants";
 
-import { getMovies } from "@/services/movies";
+import { getMovies, getMovieById } from "@/services/movies";
 
 const changeMoviesAction = (res) => ({
   type: actionTypes.CHANGE_MOVIES,
   movies: res.results,
 });
 
+const changeMovieByIdAction = (res) => ({
+  type: actionTypes.CHANGE_MOVIE_INFO,
+  movieInfo: res,
+});
+
 export const getMoviesAction = () => {
   return (dispatch) => {
     getMovies().then((res) => {
       dispatch(changeMoviesAction(res));
+    });
+  };
+};
+
+export const getMovieByIdAction = (id) => {
+  return (dispatch) => {
+    getMovieById(id).then((res) => {
+      dispatch(changeMovieByIdAction(res));
     });
   };
 };

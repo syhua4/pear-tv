@@ -1,7 +1,8 @@
-import React, { memo, useState } from "react";
+import React, { memo } from "react";
 
 import { MovieGridWrapper } from "./style";
 import { movieGenres } from "@/common/local-data";
+import { useHistory } from "react-router";
 
 export default memo(function MovieGrid(props) {
   const { movies } = props;
@@ -11,12 +12,25 @@ export default memo(function MovieGrid(props) {
       .map((item) => item.name)
       .join(" ");
   };
+  let history = useHistory();
+  const handleClick = (id) => {
+    history.push(`/movies/${id}`);
+  };
+
+  const handleFav = (e) => {
+    e.stopPropagation();
+    console.log("add");
+  };
   return (
     <MovieGridWrapper className="wrap-v2">
       <div className="grid-wrapper">
         {movies.map((item) => {
           return (
-            <div className="grid-item" key={item.id}>
+            <div
+              className="grid-item"
+              key={item.id}
+              onClick={(e) => handleClick(item.id)}
+            >
               <span className="rating">{item.vote_average}</span>
               <img
                 src={process.env.REACT_APP_IMAGE_URL + item.poster_path}
@@ -36,7 +50,9 @@ export default memo(function MovieGrid(props) {
                   {getGenresByIds(item.genre_ids)}
                 </div>
                 <div className="description">{item.overview}</div>
-                <div className="btn-fav">Add to my list</div>
+                <div className="btn-fav" onClick={(e) => handleFav(e)}>
+                  Add to my list
+                </div>
               </div>
             </div>
           );

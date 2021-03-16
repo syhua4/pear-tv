@@ -9,6 +9,7 @@
     "axios": "^0.21.1",
     "boostrap": "^2.0.0",
     "bootstrap": "^4.6.0",
+    "bootstrap-icons": "^1.4.0",
     "dotenv": "^8.2.0",
     "dotenv-cli": "^4.0.0",
     "immutable": "^4.0.0-rc.12",

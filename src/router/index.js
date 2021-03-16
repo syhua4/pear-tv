@@ -2,6 +2,7 @@ import Discover from "@/pages/discover";
 import Movies from "@/pages/movies";
 import Tvs from "@/pages/tvs";
 import Rankings from "@/pages/rankings";
+import MovieDetail from "../pages/movies/child-cpns/movie-detail";
 
 const routes = [
   {
@@ -12,6 +13,11 @@ const routes = [
   {
     path: "/movies",
     component: Movies,
+    exact: true,
+  },
+  {
+    path: "/movies/:id",
+    component: MovieDetail,
   },
   {
     path: "/tvs",

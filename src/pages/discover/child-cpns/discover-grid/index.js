@@ -1,9 +1,14 @@
 import React, { Fragment, memo } from "react";
+import { useHistory } from "react-router";
 
 import { DiscoverGridWrapper } from "./style";
 
 export default memo(function DiscoverGrid(props) {
   const { title, items, count } = props;
+  const history = useHistory();
+  const handleClick = (id) => {
+    history.push(`/movies/${id}`);
+  };
   const itemsModified = items.slice(0, count);
   const formatScore = (score) => {
     let integer = ("" + score).split(".")[0] + ".";
@@ -21,7 +26,11 @@ export default memo(function DiscoverGrid(props) {
       <div className="grid-wrapper">
         {itemsModified.map((item) => {
           return (
-            <div className="grid-item" key={item.id}>
+            <div
+              className="grid-item"
+              key={item.id}
+              onClick={(e) => handleClick(item.id)}
+            >
               <img
                 src={process.env.REACT_APP_IMAGE_URL + item.poster_path}
                 alt={item.title}

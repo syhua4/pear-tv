@@ -20,3 +20,13 @@ export function getMovies(
     },
   });
 }
+
+export function getMovieById(id) {
+  return request({
+    url: `/movie/${id}`,
+    params: {
+      api_key: process.env.REACT_APP_TMDB_API_KEY,
+      append_to_response: "videos,images,reviews,similar,credits",
+    },
+  });
+}

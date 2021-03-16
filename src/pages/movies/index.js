@@ -1,5 +1,5 @@
 import React, { memo, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { shallowEqual, useDispatch, useSelector } from "react-redux";
 
 import { getMoviesAction } from "./store/actionCreators";
 
@@ -10,9 +10,12 @@ import banner from "@/assets/image/banner5.jpeg";
 
 export default memo(function Movies() {
   const dispatch = useDispatch();
-  const { movies } = useSelector((state) => ({
-    movies: state.getIn(["movies", "movies"]),
-  }));
+  const { movies } = useSelector(
+    (state) => ({
+      movies: state.getIn(["movies", "movies"]),
+    }),
+    shallowEqual
+  );
   useEffect(() => {
     dispatch(getMoviesAction());
   }, [dispatch]);

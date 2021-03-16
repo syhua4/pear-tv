@@ -5,9 +5,26 @@ body {
   font-family: "Josefin Sans", sans-serif;
   overflow-x: hidden;
 }
+a{
+  color:#333;
+}
+a:hover, a:active{
+  color:#333;
+  text-decoration: none;
+
+}
+
 input,
 a {
   outline: none;
+}
+
+h1 {
+  margin: 0;
+  font-size: 28px;
+}
+h2 {
+  font-size: 24px;
 }
 
 ul {

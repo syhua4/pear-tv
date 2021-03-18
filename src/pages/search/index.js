@@ -48,14 +48,20 @@ export default memo(function Search() {
         {results.map((r) => {
           return (
             <div className="result-item" key={r.id}>
-              <img
-                src={process.env.REACT_APP_IMAGE_URL + r.poster_path}
-                alt={r.title}
-              />
+              <a href={`/movies/${r.id}`}>
+                <img
+                  src={process.env.REACT_APP_IMAGE_URL + r.poster_path}
+                  alt={r.title}
+                />
+              </a>
               <div className="result-info">
-                <h2>{r.title}</h2>
+                <a href={`/movies/${r.id}`}>
+                  <h2>{r.title}</h2>
+                </a>
                 <div className="rating">{r.vote_average}</div>
-                <div className="genres">{getGenresByIds(r.genre_ids)}</div>
+                <div className="genres text-nowrap">
+                  {getGenresByIds(r.genre_ids)}
+                </div>
                 <div className="release">{r.release_date}</div>
               </div>
             </div>

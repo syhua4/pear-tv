@@ -1,7 +1,7 @@
 import Discover from "@/pages/discover";
 import Movies from "@/pages/movies";
 import Tvs from "@/pages/tvs";
-import Rankings from "@/pages/rankings";
+import Rankings from "@/pages/ranking";
 import Search from "@/pages/search";
 import MovieDetail from "../pages/movies/child-cpns/movie-detail";
 

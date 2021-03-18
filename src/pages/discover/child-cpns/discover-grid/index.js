@@ -1,5 +1,7 @@
-import React, { Fragment, memo } from "react";
+import React, { memo } from "react";
 import { useHistory } from "react-router";
+
+import { formatScore } from "@/utils/movies";
 
 import { DiscoverGridWrapper } from "./style";
 
@@ -10,16 +12,7 @@ export default memo(function DiscoverGrid(props) {
     history.push(`/movies/${id}`);
   };
   const itemsModified = items.slice(0, count);
-  const formatScore = (score) => {
-    let integer = ("" + score).split(".")[0] + ".";
-    let decimal = ("" + score).split(".")[1] || 0;
-    return (
-      <Fragment>
-        <span className="integer">{integer}</span>
-        <span className="decimal">{decimal}</span>
-      </Fragment>
-    );
-  };
+
   return (
     <DiscoverGridWrapper className="wrap-v2">
       <h2 className="grid-title">{title}</h2>

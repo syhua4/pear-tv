@@ -33,7 +33,10 @@ export const SearchWrapper = styled.div`
         flex-direction: column;
         justify-content: center;
         border-bottom: 1px solid #eee;
+        a,
         h2 {
+          width: 280px;
+          display: block;
           margin-top: 27px;
           cursor: pointer;
           display: -webkit-box;

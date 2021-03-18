@@ -1,4 +1,5 @@
 import { movieGenres } from "@/common/local-data";
+import { Fragment } from "react";
 
 export const formatCastLayout = (castList) => {
   return (
@@ -36,4 +37,15 @@ export const getGenresByIds = (ids) => {
     .filter((genre) => ids.includes(genre.id))
     .map((item) => item.name)
     .join(" ");
+};
+
+export const formatScore = (score) => {
+  let integer = ("" + score).split(".")[0] + ".";
+  let decimal = ("" + score).split(".")[1] || 0;
+  return (
+    <Fragment>
+      <span className="integer">{integer}</span>
+      <span className="decimal">{decimal}</span>
+    </Fragment>
+  );
 };

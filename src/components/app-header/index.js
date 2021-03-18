@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import { HeaderWrapper } from "./style";
 import logo from "@/assets/image/logo.png";
 import avatar from "@/assets/image/default_avatar.png";
+import SearchBox from "@/components/search-box";
 
 export default memo(function AppHeader() {
   return (
@@ -43,15 +44,7 @@ export default memo(function AppHeader() {
               </NavLink>
             </div>
           </div>
-          <form className="d-flex align-items-center search-form">
-            <input
-              className="input-search"
-              type="search"
-              placeholder="Search movies/tv shows"
-              aria-label="Search"
-            />
-            <input type="submit" value="" className="input-search-btn" />
-          </form>
+          <SearchBox />
           <div className="user-avatar d-flex align-items-center">
             <img src={avatar} alt="user avatar" />
             <span className="caret"></span>

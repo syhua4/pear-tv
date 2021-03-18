@@ -1,17 +1,13 @@
 import React, { memo } from "react";
+import { useHistory } from "react-router";
+
+import { getGenresByIds } from "@/utils/movies";
 
 import { MovieGridWrapper } from "./style";
-import { movieGenres } from "@/common/local-data";
-import { useHistory } from "react-router";
 
 export default memo(function MovieGrid(props) {
   const { movies } = props;
-  const getGenresByIds = (ids) => {
-    return movieGenres
-      .filter((genre) => ids.includes(genre.id))
-      .map((item) => item.name)
-      .join(" ");
-  };
+
   let history = useHistory();
   const handleClick = (id) => {
     history.push(`/movies/${id}`);

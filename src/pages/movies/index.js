@@ -33,7 +33,6 @@ export default memo(function Movies() {
 
   useEffect(() => {
     dispatch(getMoviesAction());
-    console.log(pagerRef.current);
   }, [dispatch]);
 
   const applyFilter = useCallback(

@@ -1,3 +1,5 @@
+import { movieGenres } from "@/common/local-data";
+
 export const formatCastLayout = (castList) => {
   return (
     castList &&
@@ -27,4 +29,11 @@ export const formatAvatarURL = (link) => {
   } else {
     return process.env.REACT_APP_IMAGE_URL + link;
   }
+};
+
+export const getGenresByIds = (ids) => {
+  return movieGenres
+    .filter((genre) => ids.includes(genre.id))
+    .map((item) => item.name)
+    .join(" ");
 };

@@ -5,9 +5,11 @@ import { getWeeklyPopularAction } from "@/pages/ranking/store/actionCreators";
 import { getGenresByIds, formatScore } from "@/utils/movies";
 
 import { RankingWrapper } from "./style";
+import { useHistory } from "react-router";
 
 export default memo(function Rankings() {
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const { weeklyPopular } = useSelector(
     (state) => ({
@@ -46,17 +48,25 @@ export default memo(function Rankings() {
           return (
             <div className="ranking-item" key={item.id}>
               <div className="rank-index">{idx + 1}</div>
-              <a href={`/movies/${item.id}`}>
-                <img
-                  src={process.env.REACT_APP_IMAGE_URL + item.poster_path}
-                  alt={item.title}
-                />
-              </a>
+
+              <img
+                src={process.env.REACT_APP_IMAGE_URL + item.poster_path}
+                alt={item.title}
+                onClick={(e) => {
+                  history.push(`/movies/${item.id}`);
+                }}
+              />
+
               <div className="item-info">
                 <div className="item-info-left">
-                  <a href={`/movies/${item.id}`}>
-                    <h2>{item.title}</h2>
-                  </a>
+                  <h2
+                    onClick={(e) => {
+                      history.push(`/movies/${item.id}`);
+                    }}
+                  >
+                    {item.title}
+                  </h2>
+
                   <div className="genres">
                     {getGenresByIds(item.genre_ids)}
                   </div>

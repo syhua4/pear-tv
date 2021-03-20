@@ -6,7 +6,6 @@ import { OverviewWrapper } from "./style";
 
 export default memo(function MovieOverview(props) {
   const { info } = props;
-  console.log(info);
   const [readMore, setReadMore] = useState(-1);
 
   const directors =

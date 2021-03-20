@@ -10,6 +10,10 @@ export const BannerWrapper = styled.div`
   > div {
     display: flex;
   }
+  .alert {
+    opacity: ${(props) => (props.showAlert ? 1 : 0)};
+    transition: all 0.2s ease-in-out;
+  }
   .banner-poster {
     border: 4px solid #fff;
     height: 322px;

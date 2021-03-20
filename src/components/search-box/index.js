@@ -29,7 +29,7 @@ export default memo(function SearchBox(props) {
           value={query}
           onChange={(e) => handleInput(e)}
           type="search"
-          placeholder="Search movies/tv shows"
+          placeholder="Search movies"
           aria-label="Search"
         />
         <input

@@ -73,17 +73,19 @@ export const MovieGridWrapper = styled.div`
         }
         .genres {
           font-size: 12px;
+          height: 16px;
+          overflow: hidden;
           span {
             display: inline-block;
             padding: 0 5px;
           }
         }
         .description {
-          height: 60px;
+          height: 100px;
           font-size: 14px;
           display: -webkit-box;
           overflow: hidden;
-          -webkit-line-clamp: 3;
+          -webkit-line-clamp: 5;
           -webkit-box-orient: vertical;
         }
         .btn-fav {

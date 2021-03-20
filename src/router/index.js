@@ -1,8 +1,9 @@
 import Discover from "@/pages/discover";
 import Movies from "@/pages/movies";
-import Tvs from "@/pages/tvs";
+import Favlist from "@/pages/favlist";
 import Rankings from "@/pages/ranking";
 import Search from "@/pages/search";
+import Login from "@/pages/auth/login";
 import MovieDetail from "../pages/movies/child-cpns/movie-detail";
 
 const routes = [
@@ -25,12 +26,16 @@ const routes = [
     component: Search,
   },
   {
-    path: "/tvs",
-    component: Tvs,
+    path: "/user/:id",
+    component: Favlist,
   },
   {
     path: "/rankings",
     component: Rankings,
+  },
+  {
+    path: "/login",
+    component: Login,
   },
 ];
 

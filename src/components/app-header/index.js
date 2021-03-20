@@ -1,12 +1,13 @@
 import React, { memo } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 
 import { HeaderWrapper } from "./style";
 import logo from "@/assets/image/logo.png";
-import avatar from "@/assets/image/default_avatar.png";
+import avatar from "@/assets/image/user_avatar.png";
 import SearchBox from "@/components/search-box";
 
 export default memo(function AppHeader() {
+  const history = useHistory();
   return (
     <HeaderWrapper>
       <nav className="header-inner fixed-top navbar navbar-expand-lg">
@@ -36,9 +37,6 @@ export default memo(function AppHeader() {
               <NavLink to="/movies" className="nav-link">
                 Movies
               </NavLink>
-              <NavLink to="/tvs" className="nav-link">
-                Tv Show
-              </NavLink>
               <NavLink to="/rankings" className="nav-link">
                 Rankings
               </NavLink>
@@ -46,11 +44,16 @@ export default memo(function AppHeader() {
           </div>
           <SearchBox />
           <div className="user-avatar d-flex align-items-center">
-            <img src={avatar} alt="user avatar" />
+            <img
+              src={avatar}
+              alt="user avatar"
+              onClick={() => {
+                history.push("/user/1");
+              }}
+            />
             <span className="caret"></span>
             <ul className="user-avatar-dropdown">
-              <li>Login</li>
-              <li>Register</li>
+              <li>Logout</li>
             </ul>
           </div>
         </div>

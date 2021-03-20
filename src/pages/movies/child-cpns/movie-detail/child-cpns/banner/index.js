@@ -1,8 +1,12 @@
-import React, { memo } from "react";
+import React, { memo, useState } from "react";
+import { useDispatch } from "react-redux";
 
+import { getFavlistAction } from "@/pages/favlist/store/actionCreators";
 import { BannerWrapper } from "./style";
 export default memo(function MovieInfoBanner(props) {
   const { info } = props;
+  const [showAlert, setShowAlert] = useState(false);
+  const dispatch = useDispatch();
   const formatTrailer = () => {
     if (info && !info.videos.results) return;
     const youtubeVideo =
@@ -13,8 +17,18 @@ export default memo(function MovieInfoBanner(props) {
       return "#/";
     }
   };
+
+  const handleFav = (item) => {
+    dispatch(getFavlistAction(item)).then(() => {
+      setShowAlert(true);
+      setTimeout(() => {
+        setShowAlert(false);
+      }, 1000);
+    });
+  };
+
   return (
-    <BannerWrapper>
+    <BannerWrapper showAlert={showAlert}>
       <div className="wrap-v2">
         <img
           className="banner-poster"
@@ -62,12 +76,20 @@ export default memo(function MovieInfoBanner(props) {
               >
                 <i className="bi bi-camera-video-fill" /> trailer
               </a>
-              <div className="btn-add-fav">
-                <i className="bi bi-bookmark-heart-fill" /> Add to List
+              <div
+                className="btn-add-fav"
+                onClick={() => {
+                  handleFav(info);
+                }}
+              >
+                <i className="bi bi-bookmark-heart-fill" /> Add to Fav
               </div>
             </div>
           </div>
         </div>
+      </div>
+      <div className="alert alert-success" role="alert">
+        Movie Added!
       </div>
     </BannerWrapper>
   );

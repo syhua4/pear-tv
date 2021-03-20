@@ -13,6 +13,7 @@ export const SearchWrapper = styled.div`
     justify-content: center;
     flex-wrap: wrap;
     width: 90vw;
+
     .result-item {
       display: flex;
       width: 460px;

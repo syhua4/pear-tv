@@ -5,13 +5,13 @@ body {
   font-family: "Josefin Sans", sans-serif;
   overflow-x: hidden;
 }
-a{
-  color:#333;
+a {
+  color: #333;
 }
-a:hover, a:active{
-  color:#333;
+a:hover,
+a:active {
+  color: #333;
   text-decoration: none;
-
 }
 
 input,
@@ -53,4 +53,39 @@ ul {
 .navbar,
 .navbar-brand {
   padding: 0;
+}
+
+.no-results {
+  margin-top: 50px;
+  width: 300px;
+}
+
+.no-results span {
+  color: #ffb400;
+  padding: 0 5px;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.pagination {
+  margin: 40px 0 10px;
+}
+.page-link {
+  color: #ef4238;
+  cursor: pointer;
+}
+.page-item.active .page-link {
+  background-color: #ef4238;
+  border-color: #ef4238;
+}
+
+.alert {
+  width: 300px;
+  position: absolute;
+  top: 5vh;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50px;
+  justify-content: center;
+  line-height: 1;
 }

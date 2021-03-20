@@ -33,6 +33,7 @@ export const formatAvatarURL = (link) => {
 };
 
 export const getGenresByIds = (ids) => {
+  if (!ids) return;
   return movieGenres
     .filter((genre) => ids.includes(genre.id))
     .map((item) => item.name)

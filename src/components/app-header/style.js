@@ -47,6 +47,8 @@ export const HeaderWrapper = styled.div`
     img {
       width: 40px;
       height: 40px;
+      border-radius: 50%;
+      overflow: hidden;
     }
     .caret {
       display: inline-block;

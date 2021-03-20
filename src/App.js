@@ -24,7 +24,7 @@ export default memo(function App() {
         <ScrollToTop>
           <AppHeader />
           {renderRoutes(routes)}
-          <AppFooter />
+          {/* <AppFooter /> */}
         </ScrollToTop>
       </BrowserRouter>
     </Provider>

@@ -1,4 +1,4 @@
-import request from "./request";
+import { apiFetch as request } from "./request";
 
 export function getSearchResult(query, page = 1) {
   return request({

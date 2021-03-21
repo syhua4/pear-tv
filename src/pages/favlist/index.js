@@ -2,9 +2,10 @@ import React, { Fragment, memo, useState } from "react";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
 
-import { getFavlistAction } from "@/pages/favlist/store/actionCreators";
+import { getFavlistAction } from "@/pages/auth/store/actionCreators";
 
 import { FavListWrapper } from "./style";
+
 export default memo(function FavList() {
   const [info, setInfo] = useState({});
   const [showSide, setShowSide] = useState(false);
@@ -13,7 +14,7 @@ export default memo(function FavList() {
   const dispatch = useDispatch();
   const { favlist } = useSelector(
     (state) => ({
-      favlist: state.getIn(["favlist", "favlist"]),
+      favlist: state.getIn(["user", "userProfile", "favlist"]),
     }),
     shallowEqual
   );
@@ -114,7 +115,7 @@ export default memo(function FavList() {
               <div className="genres text-nowrap">
                 {info &&
                   info.genres.map((i) => {
-                    return <span>{i.name}</span>;
+                    return <span key={i.name}>{i.name}</span>;
                   })}
               </div>
               <div className="overview">{info && info.overview}</div>

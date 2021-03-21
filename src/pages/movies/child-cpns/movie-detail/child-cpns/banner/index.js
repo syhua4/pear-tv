@@ -1,11 +1,20 @@
 import React, { memo, useState } from "react";
-import { useDispatch } from "react-redux";
+import { shallowEqual, useDispatch, useSelector } from "react-redux";
 
-import { getFavlistAction } from "@/pages/favlist/store/actionCreators";
+import { getFavlistAction } from "@/pages/auth/store/actionCreators";
 import { BannerWrapper } from "./style";
+
 export default memo(function MovieInfoBanner(props) {
   const { info } = props;
-  const [showAlert, setShowAlert] = useState(false);
+  const [showSuccessMsg, setShowSuccessMsg] = useState(false);
+  const [showInfoMsg, setShowInfoMsg] = useState(false);
+
+  const { isLogin } = useSelector(
+    (state) => ({
+      isLogin: state.getIn(["user", "isLogin"]),
+    }),
+    shallowEqual
+  );
   const dispatch = useDispatch();
   const formatTrailer = () => {
     if (info && !info.videos.results) return;
@@ -19,16 +28,27 @@ export default memo(function MovieInfoBanner(props) {
   };
 
   const handleFav = (item) => {
-    dispatch(getFavlistAction(item)).then(() => {
-      setShowAlert(true);
+    console.log(isLogin);
+    if (isLogin) {
+      dispatch(getFavlistAction(item)).then(() => {
+        setShowSuccessMsg(true);
+        setTimeout(() => {
+          setShowSuccessMsg(false);
+        }, 1000);
+      });
+    } else {
+      setShowInfoMsg(true);
       setTimeout(() => {
-        setShowAlert(false);
+        setShowInfoMsg(false);
       }, 1000);
-    });
+    }
   };
 
   return (
-    <BannerWrapper showAlert={showAlert}>
+    <BannerWrapper
+      showSuccessMsg={showSuccessMsg}
+      showInfoMsg={showInfoMsg}
+    >
       <div className="wrap-v2">
         <img
           className="banner-poster"
@@ -90,6 +110,9 @@ export default memo(function MovieInfoBanner(props) {
       </div>
       <div className="alert alert-success" role="alert">
         Movie Added!
+      </div>
+      <div className="alert alert-info" role="alert">
+        Please login and start creating your watchlist!
       </div>
     </BannerWrapper>
   );

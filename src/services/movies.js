@@ -1,4 +1,4 @@
-import request from "./request";
+import { apiFetch as request } from "./request";
 
 export function getMovies(
   sort_by = "popularity.desc",

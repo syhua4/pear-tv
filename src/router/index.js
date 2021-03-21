@@ -4,6 +4,7 @@ import Favlist from "@/pages/favlist";
 import Rankings from "@/pages/ranking";
 import Search from "@/pages/search";
 import Login from "@/pages/auth/login";
+import Register from "@/pages/auth/register";
 import MovieDetail from "../pages/movies/child-cpns/movie-detail";
 
 const routes = [
@@ -36,6 +37,10 @@ const routes = [
   {
     path: "/login",
     component: Login,
+  },
+  {
+    path: "/register",
+    component: Register,
   },
 ];
 

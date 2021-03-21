@@ -10,9 +10,12 @@ export const BannerWrapper = styled.div`
   > div {
     display: flex;
   }
-  .alert {
-    opacity: ${(props) => (props.showAlert ? 1 : 0)};
-    transition: all 0.2s ease-in-out;
+  .alert-success {
+    visibility: ${(props) =>
+      props.showSuccessMsg ? "visible" : "hidden"};
+  }
+  .alert-info {
+    visibility: ${(props) => (props.showInfoMsg ? "visible" : "hidden")};
   }
   .banner-poster {
     border: 4px solid #fff;

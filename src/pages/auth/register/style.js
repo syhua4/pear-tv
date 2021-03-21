@@ -14,7 +14,7 @@ export const LoginWrapper = styled.div`
     background-image: linear-gradient(to right, #ffb400, #ef4238);
     transform: translate(-30%, -5%);
   }
-  .login-form {
+  .register-form {
     position: absolute;
     height: 100%;
     top: 0;
@@ -25,6 +25,7 @@ export const LoginWrapper = styled.div`
     align-items: center;
     justify-content: center;
     background-color: #fff;
+
     .error-msg {
       font-size: 12px;
       color: #bf1650;

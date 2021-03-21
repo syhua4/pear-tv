@@ -88,4 +88,6 @@ ul {
   border-radius: 50px;
   justify-content: center;
   line-height: 1;
+  opacity: 1;
+  transition: visibility 0s linear 0s, opacity 300ms;
 }

@@ -2,7 +2,7 @@ import React, { memo, useEffect } from "react";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 
 import { getWeeklyPopularAction } from "@/pages/ranking/store/actionCreators";
-import { getGenresByIds, formatScore } from "@/utils/movies";
+import { getGenresByIds, formatScore, formatImgUrl } from "@/utils/movies";
 
 import { RankingWrapper } from "./style";
 import { useHistory } from "react-router";
@@ -46,11 +46,11 @@ export default memo(function Rankings() {
       <div className="ranking-list">
         {getTopTenList().map((item, idx) => {
           return (
-            <div className="ranking-item" key={item.id}>
-              <div className="rank-index">{idx + 1}</div>
+            <div className="ranking-item " key={item.id}>
+              <div className="rank-index sprite">{idx + 1}</div>
 
               <img
-                src={process.env.REACT_APP_IMAGE_URL + item.poster_path}
+                src={formatImgUrl(item.poster_path)}
                 alt={item.title}
                 onClick={(e) => {
                   history.push(`/movies/${item.id}`);

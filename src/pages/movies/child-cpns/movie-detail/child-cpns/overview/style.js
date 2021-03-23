@@ -29,6 +29,7 @@ export const OverviewWrapper = styled.div`
             width: 128px;
             height: 170px;
             object-fit: cover;
+            background-color: #e5e5e5;
           }
           .cast-info {
             width: 128px;
@@ -48,6 +49,7 @@ export const OverviewWrapper = styled.div`
         width: 100%;
         height: 258px;
         object-fit: cover;
+        background-color: #e5e5e5;
       }
       .col-backdrop {
         flex: 60%;

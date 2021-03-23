@@ -14,11 +14,14 @@ export const CastGroupWrapper = styled.div`
     flex-wrap: wrap;
     .cast {
       margin: 10px 16px 10px 0;
+
       img {
         width: 128px;
         height: 170px;
         object-fit: cover;
+        background-color: #e5e5e5;
       }
+
       .cast-info {
         width: 128px;
         text-align: center;

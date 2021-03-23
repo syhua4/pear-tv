@@ -4,6 +4,7 @@ export const LoginWrapper = styled.div`
   height: calc(100vh - 81px);
   position: relative;
   overflow-y: hidden;
+
   .alert {
     visibility: ${(props) => (props.showError ? "visible" : "hidden")};
   }

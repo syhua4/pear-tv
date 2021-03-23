@@ -12,7 +12,7 @@ import { getMoviesAction } from "./store/actionCreators";
 import { MoviesWrapper } from "./style";
 import MovieFilter from "./child-cpns/movie-filter";
 import MovieGrid from "./child-cpns/movie-grid";
-import banner from "@/assets/image/banner5.jpeg";
+import banner from "@/assets/image/banner2.jpeg";
 import Pagination from "../../components/pagination";
 
 export default memo(function Movies() {

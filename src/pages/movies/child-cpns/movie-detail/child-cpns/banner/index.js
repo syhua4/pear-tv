@@ -2,6 +2,8 @@ import React, { memo, useState } from "react";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 
 import { getFavlistAction } from "@/pages/auth/store/actionCreators";
+import { formatImgUrl } from "@/utils/movies";
+
 import { BannerWrapper } from "./style";
 
 export default memo(function MovieInfoBanner(props) {
@@ -52,12 +54,8 @@ export default memo(function MovieInfoBanner(props) {
       <div className="wrap-v2">
         <img
           className="banner-poster"
-          src={
-            info && info.poster_path
-              ? process.env.REACT_APP_IMAGE_URL + info.poster_path
-              : ""
-          }
-          alt=""
+          src={info && info.poster_path && formatImgUrl(info.poster_path)}
+          alt={info.title}
         />
         <div className="banner-info">
           <h1>{info && info.title}</h1>
@@ -76,9 +74,9 @@ export default memo(function MovieInfoBanner(props) {
           <div className="date">{info && info.release_date}</div>
 
           <div className="rating">
-            <div className="star-wrapper">
+            <div className="star-wrapper sprite">
               <div
-                className="active-stars"
+                className="active-stars sprite"
                 style={{
                   width: `${info && info.vote_average * 10}%`,
                 }}

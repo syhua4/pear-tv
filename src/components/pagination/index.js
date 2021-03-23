@@ -5,6 +5,7 @@ import React, {
   useState,
 } from "react";
 
+import { PaginationWrapper } from "./style";
 function Pagination(props, ref) {
   const { totalPage, requestPage } = props;
   const [activePage, setActivePage] = useState(1);
@@ -79,7 +80,7 @@ function Pagination(props, ref) {
     }
   };
   return (
-    <div>
+    <PaginationWrapper>
       <nav aria-label="Page number">
         <ul className="pagination justify-content-center">
           <li
@@ -120,7 +121,7 @@ function Pagination(props, ref) {
           </li>
         </ul>
       </nav>
-    </div>
+    </PaginationWrapper>
   );
 }
 export default memo(forwardRef(Pagination));

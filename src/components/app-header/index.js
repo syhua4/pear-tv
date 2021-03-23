@@ -4,9 +4,6 @@ import { NavLink, useHistory } from "react-router-dom";
 import { getLogoutAction } from "@/pages/auth/store/actionCreators";
 
 import { HeaderWrapper } from "./style";
-import logo from "@/assets/image/logo.png";
-import user_avatar from "@/assets/image/user_avatar.png";
-import default_avatar from "@/assets/image/default_avatar.png";
 
 import SearchBox from "@/components/search-box";
 import { useDispatch, useSelector } from "react-redux";
@@ -36,12 +33,13 @@ export default memo(function AppHeader() {
     }
   };
   return (
-    <HeaderWrapper>
+    <HeaderWrapper isLogin={isLogin}>
       <nav className="header-inner fixed-top navbar navbar-expand-lg">
         <div className="nav-items wrap-v2">
-          <a className="navbar-brand" href="/">
-            <img src={logo} alt="logo" height="80" width="109" />
-          </a>
+          <div
+            className="navbar-brand sprite"
+            onClick={(e) => history.push("/")}
+          />
           <button
             className="navbar-toggler"
             type="button"
@@ -71,8 +69,8 @@ export default memo(function AppHeader() {
           </div>
           <SearchBox />
           <div className="user-avatar d-flex align-items-center">
-            <img
-              src={isLogin ? user_avatar : default_avatar}
+            <div
+              className="avatar-image sprite"
               alt="user avatar"
               onClick={() => {
                 isLogin
@@ -80,6 +78,10 @@ export default memo(function AppHeader() {
                   : history.push("/login");
               }}
             />
+            {/* <img
+              src={isLogin ? user_avatar : default_avatar}
+              alt="user avatar"
+            /> */}
             <span className="caret" />
             <ul className="user-avatar-dropdown">{showUserMenu()}</ul>
           </div>

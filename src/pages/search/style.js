@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 export const SearchWrapper = styled.div`
+  margin-bottom: 50px;
+
   .search-box-wrapper {
     background-color: #47464a;
     height: 156px;
@@ -27,6 +29,7 @@ export const SearchWrapper = styled.div`
         object-fit: cover;
         margin-right: 20px;
         cursor: pointer;
+        background-color: #e5e5e5;
       }
       .result-info {
         width: 280px;

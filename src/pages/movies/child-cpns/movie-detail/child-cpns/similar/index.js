@@ -1,6 +1,8 @@
 import React, { Fragment, memo } from "react";
 import { useHistory } from "react-router";
 
+import { formatImgUrl } from "@/utils/movies";
+
 export default memo(function SimilarMovies(props) {
   const { info } = props;
   const history = useHistory();
@@ -19,12 +21,11 @@ export default memo(function SimilarMovies(props) {
               onClick={(e) => handleClick(movie.id)}
             >
               <img
-                src={
-                  process.env.REACT_APP_IMAGE_URL +
-                  (movie.poster_path
+                src={formatImgUrl(
+                  movie.poster_path
                     ? movie.poster_path
-                    : movie.backdrop_path)
-                }
+                    : movie.backdrop_path
+                )}
                 alt={movie.title}
               />
               <div className="movie-title text-nowrap">{movie.title}</div>

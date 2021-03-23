@@ -33,6 +33,7 @@ export const FavListWrapper = styled.div`
         img {
           width: 100%;
           object-fit: cover;
+          background-color: #e5e5e5;
         }
         h3 {
           height: 48px;
@@ -76,6 +77,7 @@ export const FavListWrapper = styled.div`
       }
       img {
         width: 100%;
+        background-color: #e5e5e5;
       }
       h2 {
         line-height: 1.2;

@@ -1,6 +1,10 @@
 import React, { memo, useState } from "react";
 
-import { formatCastLayout, formatAvatarURL } from "@/utils/movies";
+import {
+  formatCastLayout,
+  formatAvatarURL,
+  formatImgUrl,
+} from "@/utils/movies";
 
 import { OverviewWrapper } from "./style";
 
@@ -45,10 +49,9 @@ export default memo(function MovieOverview(props) {
         <div className="col-backdrop">
           <img
             src={
-              info && info.images.backdrops
-                ? process.env.REACT_APP_IMAGE_URL +
-                  info.images.backdrops[0].file_path
-                : ""
+              info &&
+              info.images.backdrops &&
+              formatImgUrl(info.images.backdrops[0].file_path)
             }
             alt={info && info.title}
           />
@@ -59,7 +62,7 @@ export default memo(function MovieOverview(props) {
               return (
                 <img
                   key={i.file_path}
-                  src={process.env.REACT_APP_IMAGE_URL + i.file_path}
+                  src={formatImgUrl(i.file_path)}
                   alt={info && info.title}
                 />
               );

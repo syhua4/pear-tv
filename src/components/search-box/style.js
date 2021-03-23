@@ -29,8 +29,7 @@ export const SearchBoxWrapper = styled.div`
       right: 0;
       top: 50%;
       transform: translateY(-50%);
-      background-image: url(${require("@/assets/image/search.png")
-        .default});
+      background-position: -10px -110px;
     }
   }
 `;

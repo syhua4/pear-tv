@@ -91,3 +91,7 @@ ul {
   opacity: 1;
   transition: visibility 0s linear 0s, opacity 300ms;
 }
+
+.sprite {
+  background: url("@/assets/image/peartv_sprites.png");
+}

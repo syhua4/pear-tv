@@ -26,6 +26,9 @@ export const MovieGridWrapper = styled.div`
           top: 0;
         }
       }
+      .movie-poster {
+        background-color: #e5e5e5;
+      }
       .rating {
         color: #fff;
         border-radius: 10px;
@@ -70,6 +73,7 @@ export const MovieGridWrapper = styled.div`
           object-fit: cover;
           margin-bottom: 10px;
           padding: 0;
+          background-color: #e5e5e5;
         }
         .genres {
           font-size: 12px;
@@ -81,11 +85,11 @@ export const MovieGridWrapper = styled.div`
           }
         }
         .description {
-          height: 100px;
+          height: 85px;
           font-size: 14px;
           display: -webkit-box;
           overflow: hidden;
-          -webkit-line-clamp: 5;
+          -webkit-line-clamp: 4;
           -webkit-box-orient: vertical;
         }
         .btn-fav {

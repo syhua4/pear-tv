@@ -2,6 +2,7 @@ import React, { Fragment, memo, useState } from "react";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
 
+import { formatImgUrl } from "@/utils/movies";
 import { getFavlistAction } from "@/pages/auth/store/actionCreators";
 
 import { FavListWrapper } from "./style";
@@ -31,10 +32,7 @@ export default memo(function FavList() {
               displayInfo(item);
             }}
           >
-            <img
-              src={process.env.REACT_APP_IMAGE_URL + item.backdrop_path}
-              alt={item.title}
-            />
+            <img src={formatImgUrl(item.backdrop_path)} alt={item.title} />
             <h3>{item.title}</h3>
             <div className="more-info">
               <div className="genres text-nowrap">
@@ -98,10 +96,7 @@ export default memo(function FavList() {
                 onClick={(e) => {
                   history.push(`/movies/${info.id}`);
                 }}
-                src={
-                  info &&
-                  process.env.REACT_APP_IMAGE_URL + info.backdrop_path
-                }
+                src={info && formatImgUrl(info.backdrop_path)}
                 alt={info && info.title}
               />
               <h2

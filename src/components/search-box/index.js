@@ -35,7 +35,7 @@ export default memo(function SearchBox(props) {
         <input
           type="submit"
           value=""
-          className="input-search-btn"
+          className="input-search-btn sprite"
           onClick={(e) => handleSubmit(e)}
         />
       </form>

@@ -1,4 +1,4 @@
-import React, { memo, useEffect } from "react";
+import React, { memo, Suspense, useEffect } from "react";
 import { Provider } from "react-redux";
 import { BrowserRouter, useLocation, withRouter } from "react-router-dom";
 import { renderRoutes } from "react-router-config";
@@ -23,8 +23,10 @@ export default memo(function App() {
       <BrowserRouter>
         <ScrollToTop>
           <AppHeader />
-          {renderRoutes(routes)}
-          {/* <AppFooter /> */}
+          <Suspense fallback={<div>loading</div>}>
+            {renderRoutes(routes)}
+          </Suspense>
+          <AppFooter />
         </ScrollToTop>
       </BrowserRouter>
     </Provider>

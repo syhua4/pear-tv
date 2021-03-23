@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const DiscoverGridWrapper = styled.div`
-  margin-bottom: 2rem;
+  margin-bottom: 50px;
   .grid-title {
     padding: 1rem;
     margin-top: 1rem;
@@ -27,6 +27,7 @@ export const DiscoverGridWrapper = styled.div`
         width: 100%;
         height: 100%;
         object-fit: cover;
+        background-color: #e5e5e5;
       }
       .poster-overlay {
         width: 100%;

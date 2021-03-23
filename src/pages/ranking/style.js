@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 export const RankingWrapper = styled.div`
+  margin-bottom: 50px;
+
   padding: 0 20px;
   > span {
     font-size: 12px;
@@ -15,7 +17,9 @@ export const RankingWrapper = styled.div`
       align-items: center;
       margin-bottom: 30px;
       &:first-child .rank-index {
-        background: url(${require("@/assets/image/top_rank.png").default});
+        background: url(${require("@/assets/image/peartv_sprites.png")
+          .default});
+        background-position: -139px -10px;
         font-size: 0;
       }
       &:nth-child(2) .rank-index,
@@ -41,6 +45,7 @@ export const RankingWrapper = styled.div`
         height: 220px;
         object-fit: cover;
         cursor: pointer;
+        background-color: #e5e5e5;
       }
       .item-info {
         width: 70vw;

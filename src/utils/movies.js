@@ -1,5 +1,15 @@
 import { movieGenres } from "@/common/local-data";
+import loadingImg from "@/assets/image/loading.png";
+
 import { Fragment } from "react";
+
+export const formatImgUrl = (url) => {
+  if (url) {
+    return process.env.REACT_APP_IMAGE_URL + url;
+  } else {
+    return loadingImg;
+  }
+};
 
 export const formatCastLayout = (castList) => {
   return (
@@ -7,10 +17,7 @@ export const formatCastLayout = (castList) => {
     castList.map((cast) => {
       return (
         <div className="cast" key={cast.id}>
-          <img
-            src={process.env.REACT_APP_IMAGE_URL + cast.profile_path}
-            alt={cast.name}
-          />
+          <img src={formatImgUrl(cast.profile_path)} alt={cast.name} />
           <div className="cast-info">
             <div className="cast-name text-nowrap">{cast.name}</div>
             {cast.character ? (
@@ -28,7 +35,7 @@ export const formatAvatarURL = (link) => {
   if (link.lastIndexOf("/http", 0) === 0) {
     return link.substring(1);
   } else {
-    return process.env.REACT_APP_IMAGE_URL + link;
+    return formatImgUrl(link);
   }
 };
 

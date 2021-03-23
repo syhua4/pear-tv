@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 import { useHistory } from "react-router";
 
-import { getGenresByIds } from "@/utils/movies";
+import { getGenresByIds, formatImgUrl } from "@/utils/movies";
 
 import { MovieGridWrapper } from "./style";
 
@@ -23,16 +23,14 @@ export default memo(function MovieGrid(props) {
             >
               <span className="rating">{item.vote_average}</span>
               <img
-                src={process.env.REACT_APP_IMAGE_URL + item.poster_path}
+                src={formatImgUrl(item.poster_path)}
                 alt={item.title}
                 className="movie-poster"
               />
               <div className="movie-title text-nowrap">{item.title}</div>
               <div className="grid-overlay">
                 <img
-                  src={
-                    process.env.REACT_APP_IMAGE_URL + item.backdrop_path
-                  }
+                  src={formatImgUrl(item.backdrop_path)}
                   alt={item.title}
                 />
                 <div className="movie-title">{item.title}</div>

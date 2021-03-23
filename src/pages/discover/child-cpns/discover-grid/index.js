@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 import { useHistory } from "react-router";
 
-import { formatScore } from "@/utils/movies";
+import { formatScore, formatImgUrl } from "@/utils/movies";
 
 import { DiscoverGridWrapper } from "./style";
 
@@ -25,7 +25,7 @@ export default memo(function DiscoverGrid(props) {
               onClick={(e) => handleClick(item.id)}
             >
               <img
-                src={process.env.REACT_APP_IMAGE_URL + item.poster_path}
+                src={formatImgUrl(item.poster_path)}
                 alt={item.title}
                 className="movie-poster"
               />

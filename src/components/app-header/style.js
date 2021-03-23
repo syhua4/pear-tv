@@ -8,6 +8,12 @@ export const HeaderWrapper = styled.div`
 
     .nav-items {
       display: flex;
+      .navbar-brand {
+        width: 109px;
+        height: 80px;
+        background-position: -10px -10px;
+        cursor: pointer;
+      }
       .navbar-nav {
         height: 80px;
         line-height: 80px;
@@ -44,12 +50,15 @@ export const HeaderWrapper = styled.div`
         display: block;
       }
     }
-    img {
+    .avatar-image {
       width: 40px;
       height: 40px;
       border-radius: 50%;
       overflow: hidden;
+      background-position: ${(props) =>
+        props.isLogin ? "-130px -110px" : "-70px -110px"};
     }
+
     .caret {
       display: inline-block;
       width: 0;

@@ -9,5 +9,6 @@ export const GalleryWrapper = styled.div`
     object-fit: cover;
     display: block;
     margin: 20px 20px 0px 0;
+    background-color: #e5e5e5;
   }
 `;

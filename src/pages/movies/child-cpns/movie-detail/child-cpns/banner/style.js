@@ -24,6 +24,7 @@ export const BannerWrapper = styled.div`
     position: relative;
     top: 70px;
     margin: 0 30px;
+    background-color: #e5e5e5;
   }
   .banner-info {
     color: #fff;

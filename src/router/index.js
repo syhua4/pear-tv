@@ -1,11 +1,15 @@
-import Discover from "@/pages/discover";
-import Movies from "@/pages/movies";
-import Favlist from "@/pages/favlist";
-import Rankings from "@/pages/ranking";
-import Search from "@/pages/search";
-import Login from "@/pages/auth/login";
-import Register from "@/pages/auth/register";
-import MovieDetail from "../pages/movies/child-cpns/movie-detail";
+import React from "react";
+
+const Discover = React.lazy((_) => import("@/pages/discover"));
+const Movies = React.lazy((_) => import("@/pages/movies"));
+const Favlist = React.lazy((_) => import("@/pages/favlist"));
+const Rankings = React.lazy((_) => import("@/pages/ranking"));
+const Search = React.lazy((_) => import("@/pages/search"));
+const Login = React.lazy((_) => import("@/pages/auth/login"));
+const Register = React.lazy((_) => import("@/pages/auth/register"));
+const MovieDetail = React.lazy((_) =>
+  import("@/pages/movies/child-cpns/movie-detail")
+);
 
 const routes = [
   {

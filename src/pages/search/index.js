@@ -2,7 +2,7 @@ import React, { memo, useCallback, useEffect } from "react";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 
 import { getSearchResultAction } from "@/pages/search/store/actionCreators";
-import { getGenresByIds } from "@/utils/movies";
+import { getGenresByIds, formatImgUrl } from "@/utils/movies";
 
 import SearchBox from "@/components/search-box";
 import { SearchWrapper } from "./style";
@@ -34,7 +34,7 @@ export default memo(function Search() {
               onClick={(e) => {
                 history.push(`/movies/${r.id}`);
               }}
-              src={process.env.REACT_APP_IMAGE_URL + r.poster_path}
+              src={formatImgUrl(r.poster_path)}
               alt={r.title}
             />
 

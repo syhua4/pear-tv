@@ -1,0 +1,97 @@
+@import "~normalize.css";
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap");
+/* reset */
+body {
+  font-family: "Josefin Sans", sans-serif;
+  overflow-x: hidden;
+}
+a {
+  color: #333;
+}
+a:hover,
+a:active {
+  color: #333;
+  text-decoration: none;
+}
+
+input,
+a {
+  outline: none;
+}
+
+h1 {
+  margin: 0;
+  font-size: 28px;
+}
+h2 {
+  font-size: 24px;
+}
+
+ul {
+  list-style: none;
+  padding-inline-start: 0;
+  margin-bottom: 0;
+}
+
+/* global style */
+.wrap-v1 {
+  width: 1440px;
+  margin: 0 auto;
+}
+
+.wrap-v2 {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.text-nowrap {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.navbar,
+.navbar-brand {
+  padding: 0;
+}
+
+.no-results {
+  margin-top: 50px;
+  width: 300px;
+}
+
+.no-results span {
+  color: #ffb400;
+  padding: 0 5px;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.pagination {
+  margin: 40px 0 10px;
+}
+.page-link {
+  color: #ef4238;
+  cursor: pointer;
+}
+.page-item.active .page-link {
+  background-color: #ef4238;
+  border-color: #ef4238;
+}
+
+.alert {
+  width: 300px;
+  position: absolute;
+  top: 5vh;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50px;
+  justify-content: center;
+  line-height: 1;
+  opacity: 1;
+  transition: visibility 0s linear 0s, opacity 300ms;
+}
+
+.sprite {
+  background: url("@/assets/image/peartv_sprites.png");
+}
